@@ -1,14 +1,36 @@
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Blog2</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <link href='http://fonts.googleapis.com/css?family=Lobster&subset=latin' rel='stylesheet' type='text/css'>
+
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="canvas">
+  <div id="header-wrap">
+    <div id="header">
+      <h1 id="site-title"><span><%= link_to 'Blog', :root %></span></h1>
+    </div>
+  </div>
 
-<%= yield %>
+  <div id="primaryContent">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
+    <%= yield %>
+  </div>
+
+  <div id="secondaryContent">
+    <%= render 'common/session' %>
+  </div>
+
+  <div id="footer">
+    Theme is adapted from <a href="http://wordpress.org/extend/themes/liquorice">Liquorice</a> WordPress theme by <a href="http://nudge.ca/">Nudge Design</a>
+  </div>
+</div>
 </body>
 </html>

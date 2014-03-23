@@ -1,0 +1,16 @@
+
+
+<%- if user_signed_in? %>
+  <small>
+    <%= current_user.email %><br />
+    <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+    <%- if current_user.is_blogger %>
+      | <%= link_to 'New post', new_post_path %>
+    <%- end %>
+  </small>
+<%- else %>
+  <small>
+    <%= link_to 'Register', new_user_registration_path %> |
+    <%= link_to 'Sign in', new_user_session_path %>
+  </small>
+<%- end %>
